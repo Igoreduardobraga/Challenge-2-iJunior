@@ -1,0 +1,154 @@
+/* Geral */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#left-background{
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+h3{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Front Card */
+
+.front-card{
+    width: 447px;
+    height: 245px;
+    border-radius: 10.5px;
+    position: absolute;
+    left: 12%;
+    top: 20%;
+}
+
+.front-card, .card-back p{
+    color: white;
+    font-weight: lighter;
+}
+
+.front-card .card-logo{
+    position: absolute;
+    top: 9%;
+    left: 6%;
+    z-index: 1;
+}
+
+.front-card .card-number, .card-name, .card-exp-date{
+    position: absolute;
+    left: 3%;
+    left: 6%;
+}
+
+.front-card .card-number{
+    top: 55%;
+    font-size: 1.7rem;
+}
+
+.front-card .card-name{
+    top: 81.5%;
+}
+
+.front-card .card-exp-date{
+    top: 81.5%;
+    left: 80%;
+}
+
+/* Back Card */
+
+.card-back{
+    width: 447px;
+    height: 245px;
+    border-radius: 10.5px;
+    position: absolute;
+    left: 18%;
+    top: 52%;
+}
+
+.card-back p{
+    position: absolute;
+    top: 44.5%;
+    left: 78%;
+}
+
+/* Form  */
+
+.form{
+    margin-top: 200px;
+    margin-right: 400px;
+    width: 30vw;
+    height: 31vh;
+}
+
+.confirm-btn{
+    margin-top: 40px;
+    width: 26.46vw;
+    height: 60px;
+    background-color: hsl(278, 68%, 11%);
+    border-radius: 8px;
+    border: none;
+    color: white;
+}
+
+.confirm-btn:hover{
+    cursor: pointer;
+}
+
+input{
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid hsl(278, 94%, 30%);
+}
+
+input:active{
+    border: 1px solid hsl(249, 99%, 64%);
+}
+
+.form p{
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    letter-spacing: 3px;
+}
+
+.input-exp-date{
+    display: flex;
+}
+
+.input-exp-date input{
+    width: 110px;
+}
+
+.input-exp-date-2{
+    margin-left: 11px;
+}
+
+.input-name, .input-card-number{
+    width: 26.46vw;
+}
+
+.bottom-form{
+    display: flex;
+}
+
+.cvc{
+    margin-left: 25px;
+}
+
+.cvc input{
+    width: 250px;
+}

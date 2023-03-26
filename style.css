@@ -25,6 +25,12 @@ h3{
     font-weight: 500;
 }
 
+small{
+    visibility: hidden;
+    font-size: 12px;
+    color: red;
+}
+
 /* Front Card */
 
 .front-card{
@@ -95,7 +101,7 @@ h3{
 }
 
 .confirm-btn{
-    margin-top: 40px;
+    margin-top: 25px;
     width: 26.46vw;
     height: 60px;
     background-color: hsl(278, 68%, 11%);
@@ -111,7 +117,7 @@ h3{
 input{
     border-radius: 8px;
     padding: 15px;
-    border: 1px solid hsl(278, 94%, 30%);
+    border: 1px solid hsl(270, 3%, 87%);
 }
 
 input:active{
@@ -119,14 +125,16 @@ input:active{
 }
 
 .form p{
+    font-size: 15px;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
-    margin-top: 1.5rem;
+    margin-top: 0.8rem;
     letter-spacing: 3px;
 }
 
 .input-exp-date{
     display: flex;
+    margin-right: 25px;
 }
 
 .input-exp-date input{
@@ -143,10 +151,6 @@ input:active{
 
 .bottom-form{
     display: flex;
-}
-
-.cvc{
-    margin-left: 25px;
 }
 
 .cvc input{

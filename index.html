@@ -28,6 +28,9 @@
   </head>
   <body>
     <div class="container">
+
+      <!-- Cards left -->
+
         <img src="images/bg-main-desktop.png" id="left-background" />
         <div class="front-card">
           <img src="images/bg-card-front.png" alt="" />
@@ -42,14 +45,19 @@
           <p class="card-cvc">000</p>
         </div>
 
-      <div class="form">
+      <!-- Form -->
+
+      <form class="form" id="form">
         <div class="form-name">
           <p>Cardholder Name</p>
           <input
             type="text"
             class="input-name"
             placeholder="e.g. Jane Appleseed"
+            id="input-name"
           />
+          <br>
+          <small>Wrong format, only letters and spaces!</small>
         </div>
 
         <div class="card-number">
@@ -59,7 +67,10 @@
             class="input-card-number"
             placeholder="e.g. 1234 5678 9123 0000"
             maxlength="20"
+            id="input-card-number"
           />
+          <br>
+          <small>Wrong format, only numbers!</small>
         </div>
 
         <div class="bottom-form">
@@ -71,23 +82,29 @@
                 class="input-exp-date-1"
                 placeholder="MM"
                 maxlength="2"
+                id="input-exp-date-MM"
               />
               <input
                 type="text"
                 class="input-exp-date-2"
                 placeholder="YY"
                 maxlength="2"
+                id="input-exp-date-YY"
               />
             </div>
+            <small>Wrong format, only numbers!</small>
+            
           </div>
 
           <div class="cvc">
             <p>CVC</p>
-            <input type="text" placeholder="eg. 123" maxlength="3" />
+            <input type="text" placeholder="eg. 123" maxlength="3" id="input-cvc"/>
+            <br>
+            <small>Wrong format, only numbers!</small>
           </div>
         </div>
-        <button class="confirm-btn">Confirm</button>
-      </div>
+        <button class="confirm-btn" type="submit">Confirm</button>
+      </from>
     </div>
 
     <!-- Completed state start -->
@@ -100,5 +117,7 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Igor</a>.
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

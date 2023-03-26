@@ -156,3 +156,9 @@ input:active{
 .cvc input{
     width: 250px;
 }
+
+/* completed state start  */
+
+.completed{
+    visibility: hidden;
+}

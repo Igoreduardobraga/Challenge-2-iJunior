@@ -88,35 +88,34 @@ function checkInputs(){
         }
     }
 
-    console.log(sucess);
-    
+    if(sucess === 5)
+        completed();
+}
+
+function completed(){
+    document.querySelector('#form').style.visibility = 'hidden'
 }
 
 function errorValidation(input,message){
     const small = input.parentElement.querySelector('small');
-    console.log(small)
     small.innerText = message;
 
     small.style.visibility = "visible"
     input.style.borderColor = "red";
-    // const form = input.parentElement
-    // console.log(form)
-    // const small = form.querySelector('small')
-    // small.innerText = message
-
-    // form.className = 'form-error'
 }
 
 function errorValidationExpDate(input,message){
 
     if(input === expDateMM){
-        expDateMM.style.borderColor = "red";
+        expDateMM.style.borderColor = 'red'
     }
     else{
-        expDateYY.style.borderColor = "red";
+        expDateYY.style.borderColor = 'red'
     }
+
     const small = input.parentElement.parentElement.querySelector('small')
     small.innerText = message
+    small.style.visibility = "visible"
 }
 
 function sucessValidation(input){
@@ -127,9 +126,16 @@ function sucessValidation(input){
 }
 
 function sucessValidationExpDate(input){
-    const form = input.parentElement.parentElement;
 
-    form.className = 'form-sucess'
+    if(input === expDateMM){
+        expDateMM.style.borderColor = "hsl(270, 3%, 87%)";
+    }
+    else{
+        expDateYY.style.borderColor = "hsl(270, 3%, 87%)";
+    }
+
+    const small = input.parentElement.parentElement.querySelector('small');
+    small.style.visibility = 'hidden'
 }
 
 // Update data card 
@@ -142,9 +148,23 @@ function updateName(e){
     document.querySelector('.front-card .card-name').innerText = e.target.value;
 }
 
-// function updateName(e){
-//     document.querySelector('.front-card .card-name').innerText = e.target.value;
-// }
+function updateExpDateMM(e){
+    if(expDateYY === ''){
+        document.querySelector('.front-card .card-exp-date').innerText = e.target.value + '/' + '00';
+    }
+    else{
+        document.querySelector('.front-card .card-exp-date').innerText = e.target.value + '/' + expDateYY.value;
+    }
+}
+
+function updateExpDateYY(e){
+    if(expDateMM === ''){
+        document.querySelector('.front-card .card-exp-date').innerText = '00' + '/' + e.target.value ;
+    }
+    else{
+        document.querySelector('.front-card .card-exp-date').innerText = expDateMM.value + '/' + e.target.value;
+    }
+}
 
 function updateCVC(e){
     document.querySelector('.card-back .card-cvc').innerText = e.target.value;
@@ -152,4 +172,6 @@ function updateCVC(e){
 
 cardNumber.addEventListener("keyup", updateCardNumber);
 cvc.addEventListener('keyup', updateCVC);
-username.addEventListener('keyup', updateName)
+username.addEventListener('keyup', updateName);
+expDateMM.addEventListener('keyup', updateExpDateMM)
+expDateYY.addEventListener('keyup', updateExpDateYY)

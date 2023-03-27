@@ -14,7 +14,9 @@ form.addEventListener('submit', (e) => {
 
 })
 
-function checkInputs(){
+function checkInputs() {
+
+    var sucess = 0;
 
     const nameValue = username.value.trim();
     const cardNumberValue = cardNumber.value.trim();
@@ -22,55 +24,45 @@ function checkInputs(){
     const expDateYYValue = expDateYY.value.trim();
     const cvcValue = cvc.value.trim();
 
-    var sucess = 0;
-
-    if(nameValue === ''){
+    if (nameValue === '') {
         errorValidation(username, "Can't be blank");
-    }
-    else{
-        if(/^[A-Za-z ]+$/.test(nameValue)){
+    } else {
+        if (/^[A-Za-z ]+$/.test(nameValue)) {
             sucessValidation(username)
             sucess++;
-        }
-        else{
+        } else {
             errorValidation(username, "Wrong format, only letters and spaces!");
         }
     }
 
-    if(cardNumberValue === ''){
+    if (cardNumberValue === '') {
         errorValidation(cardNumber, "Can't be blank");
-    }
-    else{
-        if(isNaN(cardNumberValue.replace(/\s/g, ''))){
+    } else {
+        if (isNaN(cardNumberValue.replace(/\s/g, ''))) {
             errorValidation(cardNumber, 'Wrong format, only numbers!');
-        }
-        else{
+        } else {
             sucessValidation(cardNumber);
             sucess++;
         }
     }
 
-    if(cvcValue === ''){
+    if (cvcValue === '') {
         errorValidation(cvc, "Can't be blank");
-    }
-    else{
-        if(isNaN(cvcValue)){
+    } else {
+        if (isNaN(cvcValue)) {
             errorValidation(cvc, 'Wrong format, only numbers!');
-        }
-        else{
+        } else {
             sucessValidation(cvc);
             sucess++;
         }
     }
 
-    if(expDateMMValue === ''){
+    if (expDateMMValue === '') {
         errorValidationExpDate(expDateMM, "Can't be blank");
-    }
-    else{
-        if(isNaN(expDateMMValue.replace(/\s/g, ''))){
+    } else {
+        if (isNaN(expDateMMValue.replace(/\s/g, ''))) {
             errorValidationExpDate(expDateMM, 'Wrong format, only numbers!');
-        }
-        else{
+        } else {
             sucessValidationExpDate(expDateMM);
             sucess++;
         }
@@ -79,24 +71,19 @@ function checkInputs(){
     if (expDateYYValue === '') {
         errorValidationExpDate(expDateYY, "Can't be blank");
     } else {
-        if(isNaN(expDateYYValue.replace(/\s/g, ''))){
+        if (isNaN(expDateYYValue.replace(/\s/g, ''))) {
             errorValidationExpDate(expDateYY, 'Wrong format, only numbers!');
-        }
-        else{
+        } else {
             sucessValidationExpDate(expDateYY);
             sucess++;
         }
     }
 
-    if(sucess === 5)
+    if (sucess === 5)
         completed();
 }
 
-function completed(){
-    document.querySelector('#form').style.visibility = 'hidden'
-}
-
-function errorValidation(input,message){
+function errorValidation(input, message) {
     const small = input.parentElement.querySelector('small');
     small.innerText = message;
 
@@ -104,12 +91,11 @@ function errorValidation(input,message){
     input.style.borderColor = "red";
 }
 
-function errorValidationExpDate(input,message){
+function errorValidationExpDate(input, message) {
 
-    if(input === expDateMM){
+    if (input === expDateMM) {
         expDateMM.style.borderColor = 'red'
-    }
-    else{
+    } else {
         expDateYY.style.borderColor = 'red'
     }
 
@@ -118,19 +104,18 @@ function errorValidationExpDate(input,message){
     small.style.visibility = "visible"
 }
 
-function sucessValidation(input){
+function sucessValidation(input) {
     const small = input.parentElement.querySelector('small');
     small.style.visibility = "hidden"
 
     input.style.borderColor = "hsl(270, 3%, 87%)"
 }
 
-function sucessValidationExpDate(input){
+function sucessValidationExpDate(input) {
 
-    if(input === expDateMM){
+    if (input === expDateMM) {
         expDateMM.style.borderColor = "hsl(270, 3%, 87%)";
-    }
-    else{
+    } else {
         expDateYY.style.borderColor = "hsl(270, 3%, 87%)";
     }
 
@@ -140,33 +125,32 @@ function sucessValidationExpDate(input){
 
 // Update data card 
 
-function updateCardNumber(e){
-    document.querySelector('.front-card .card-number').innerText = e.target.value;
+function updateCardNumber(e) {
+    document.querySelector('.front-card .card-number').innerText = e.target.value.toString().replace(/\d{4}/g, "$& ");
 }
 
-function updateName(e){
+function updateName(e) {
     document.querySelector('.front-card .card-name').innerText = e.target.value;
+    document.querySelector('.front-card .card-name').style.textTransform = 'uppercase'
 }
 
-function updateExpDateMM(e){
-    if(expDateYY === ''){
-        document.querySelector('.front-card .card-exp-date').innerText = e.target.value + '/' + '00';
-    }
-    else{
+function updateExpDateMM(e) {
+    if (expDateYY === '') {
+        document.querySelector('.front-card .card-exp-date').innerText = e.target.value + '/' + '';
+    } else {
         document.querySelector('.front-card .card-exp-date').innerText = e.target.value + '/' + expDateYY.value;
     }
 }
 
-function updateExpDateYY(e){
-    if(expDateMM === ''){
-        document.querySelector('.front-card .card-exp-date').innerText = '00' + '/' + e.target.value ;
-    }
-    else{
+function updateExpDateYY(e) {
+    if (expDateMM === '') {
+        document.querySelector('.front-card .card-exp-date').innerText = '' + '/' + e.target.value;
+    } else {
         document.querySelector('.front-card .card-exp-date').innerText = expDateMM.value + '/' + e.target.value;
     }
 }
 
-function updateCVC(e){
+function updateCVC(e) {
     document.querySelector('.card-back .card-cvc').innerText = e.target.value;
 }
 
@@ -175,3 +159,26 @@ cvc.addEventListener('keyup', updateCVC);
 username.addEventListener('keyup', updateName);
 expDateMM.addEventListener('keyup', updateExpDateMM)
 expDateYY.addEventListener('keyup', updateExpDateYY)
+
+// Completed and Reset Form
+
+document.querySelector('.continue-btn').addEventListener('click', resetForm)
+
+function completed() {
+    document.querySelector('#form').style.display = 'none'
+    document.querySelector('.completed').style.display = 'block'
+}
+
+function resetForm() {
+    document.querySelector('.completed').style.display = 'none';
+    document.querySelector('#form').style.display = 'block';
+    username.value = '';
+    cardNumber.value = '';
+    expDateMM.value = '';
+    expDateYY.value = '';
+    cvc.value = '';
+    document.querySelector('.front-card .card-number').innerText = '0000 0000 0000 0000';
+    document.querySelector('.front-card .card-name').innerText = 'Jane Aplessed';
+    document.querySelector('.front-card .card-exp-date').innerText = '00/00';
+    document.querySelector('.card-back .card-cvc').innerText = '000';
+}

@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -11,21 +11,21 @@
     font-weight: 500;
 }
 
-#left-background{
+#left-background {
     height: 100vh;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: space-between;
 }
 
-h3{
+h3 {
     text-transform: uppercase;
     font-weight: 500;
 }
 
-small{
+small {
     visibility: hidden;
     font-size: 12px;
     color: red;
@@ -33,7 +33,7 @@ small{
 
 /* Front Card */
 
-.front-card{
+.front-card {
     width: 447px;
     height: 245px;
     border-radius: 10.5px;
@@ -42,41 +42,44 @@ small{
     top: 20%;
 }
 
-.front-card, .card-back p{
+.front-card,
+.card-back p {
     color: white;
     font-weight: lighter;
 }
 
-.front-card .card-logo{
+.front-card .card-logo {
     position: absolute;
     top: 9%;
     left: 6%;
     z-index: 1;
 }
 
-.front-card .card-number, .card-name, .card-exp-date{
+.front-card .card-number,
+.card-name,
+.card-exp-date {
     position: absolute;
     left: 3%;
     left: 6%;
 }
 
-.front-card .card-number{
+.front-card .card-number {
     top: 55%;
     font-size: 1.7rem;
 }
 
-.front-card .card-name{
+.front-card .card-name {
     top: 81.5%;
 }
 
-.front-card .card-exp-date{
+.front-card .card-exp-date {
     top: 81.5%;
     left: 80%;
 }
 
 /* Back Card */
 
-.card-back{
+.card-back {
     width: 447px;
     height: 245px;
     border-radius: 10.5px;
@@ -85,7 +88,7 @@ small{
     top: 52%;
 }
 
-.card-back p{
+.card-back p {
     position: absolute;
     top: 44.5%;
     left: 78%;
@@ -93,14 +96,14 @@ small{
 
 /* Form  */
 
-.form{
+.form {
     margin-top: 200px;
     margin-right: 400px;
     width: 30vw;
     height: 31vh;
 }
 
-.confirm-btn{
+.confirm-btn {
     margin-top: 25px;
     width: 26.46vw;
     height: 60px;
@@ -110,21 +113,22 @@ small{
     color: white;
 }
 
-.confirm-btn:hover{
+.confirm-btn:hover {
     cursor: pointer;
 }
 
-input{
+input {
     border-radius: 8px;
     padding: 15px;
     border: 1px solid hsl(270, 3%, 87%);
 }
 
-input:active{
-    border: 1px solid hsl(249, 99%, 64%);
+input:focus {
+    outline-color: hsl(249, 99%, 64%);
+    border: 1px;
 }
 
-.form p{
+.form p {
     font-size: 15px;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -132,33 +136,65 @@ input:active{
     letter-spacing: 3px;
 }
 
-.input-exp-date{
+.input-exp-date {
     display: flex;
     margin-right: 25px;
 }
 
-.input-exp-date input{
+.input-exp-date input {
     width: 110px;
 }
 
-.input-exp-date-2{
+.input-exp-date-2 {
     margin-left: 11px;
 }
 
-.input-name, .input-card-number{
+.input-name,
+.input-card-number {
     width: 26.46vw;
 }
 
-.bottom-form{
+.bottom-form {
     display: flex;
 }
 
-.cvc input{
+.cvc input {
     width: 250px;
 }
 
 /* completed state start  */
 
-.completed{
-    visibility: hidden;
+.completed {
+    text-align: center;
+    display: none;
+    margin-top: 300px;
+    margin-right: 450px;
+    width: 30vw;
+    height: 31vh;
+}
+
+.completed h1 {
+    text-transform: uppercase;
+    margin-top: 30px;
+    font-size: 35px;
+}
+
+.completed p {
+    color: hsl(279, 6%, 55%);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.continue-btn {
+    margin-top: 25px;
+    width: 25vw;
+    height: 60px;
+    background-color: hsl(278, 68%, 11%);
+    border-radius: 8px;
+    border: none;
+    color: white;
+}
+
+.continue-btn:hover {
+    cursor: pointer;
 }
